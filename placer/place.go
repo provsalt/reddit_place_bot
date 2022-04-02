@@ -78,6 +78,11 @@ func (p Place) PlaceImage() {
 }
 
 func closestColor(target color.Color) int {
-	r, g, b, _ := target.RGBA()
-
+	clr := Colors.Convert(target)
+	for i, c := range colorMapping {
+		if c == clr {
+			return i
+		}
+	}
+	return ColorWhite
 }
