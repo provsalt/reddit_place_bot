@@ -1,0 +1,47 @@
+{
+  "xAxis": 200,
+  "yAxis": 200,
+  "delay": 5,
+  "accounts": {
+    "account1": {
+      "password": "password",
+      "clientID": "clientID",
+      "clientSecret": "clientSecret",
+    },
+    "account2": {
+      "password": "password",
+      "clientID": "clientID",
+      "clientSecret": "clientSecret",
+    },
+    "account3": {
+      "password": "password",
+      "clientID": "clientID",
+      "clientSecret": "clientSecret",
+    },
+    "account4": {
+      "password": "password",
+      "clientID": "clientID",
+      "clientSecret": "clientSecret",
+    },
+    "account5": {
+      "password": "password",
+      "clientID": "clientID",
+      "clientSecret": "clientSecret",
+    },
+    "account6": {
+      "password": "password",
+      "clientID": "clientID",
+      "clientSecret": "clientSecret",
+    },
+    "account7": {
+      "password": "password",
+      "clientID": "clientID",
+      "clientSecret": "clientSecret",
+    },
+    "account8": {
+      "password": "password",
+      "clientID": "clientID",
+      "clientSecret": "clientSecret",
+    }
+  }
+}
