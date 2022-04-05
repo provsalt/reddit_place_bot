@@ -41,10 +41,11 @@ func (p *Place) Ticker() {
 
 }
 
-func (p Place) PlacePixel(x, y, c int) {
+func (p Place) PlacePixel(x, y int) {
 	p.placed = append(p.placed, mgl64.Vec2{float64(x), float64(y)})
-	bigBodyTemplate := `{"operationName":"setPixel","variables":{"input":{"actionName":"r/replace:set_pixel","PixelMessageData":{"coordinate":{"x":%d,"y":%d},"colorIndex":14,"canvasIndex":0}}},"query":"mutation setPixel($input: ActInput!) {\n act(input: $input) {\n data {\n ... on BasicMessage {\n id\n data {\n ... on GetUserCooldownResponseMessageData {\n nextAvailablePixelTimestamp\n __typename\n }\n ... on SetPixelResponseMessageData {\n timestamp\n __typename\n }\n __typename\n }\n __typename\n }\n __typename\n }\n __typename\n }\n}\n"}`
-	requestBody := fmt.Sprintf(bigBodyTemplate, x, y)
+
+	bigBodyTemplate := `{"operationName":"setPixel","variables":{"input":{"actionName":"r/replace:set_pixel","PixelMessageData":{"coordinate":{"x":%d,"y":%d},"colorIndex":%d,"canvasIndex":0}}},"query":"mutation setPixel($input: ActInput!) {\n act(input: $input) {\n data {\n ... on BasicMessage {\n id\n data {\n ... on GetUserCooldownResponseMessageData {\n nextAvailablePixelTimestamp\n __typename\n }\n ... on SetPixelResponseMessageData {\n timestamp\n __typename\n }\n __typename\n }\n __typename\n }\n __typename\n }\n __typename\n }\n}\n"}`
+	requestBody := fmt.Sprintf(bigBodyTemplate, x, y, closestColor(p.i.At(x, y)))
 
 	req, err := http.NewRequest("POST", "https://gql-realtime-2.reddit.com/query", bytes.NewBuffer([]byte(requestBody)))
 
@@ -78,7 +79,7 @@ func (p Place) PlaceImage() {
 
 	for y := 0; y < rgba.Bounds().Max.Y; y++ {
 		for x := 0; x < rgba.Bounds().Max.X; x++ {
-			p.PlacePixel(x, y, int(rgba.At(x, y).(color.RGBA).R))
+			p.PlacePixel(x, y)
 		}
 	}
 }

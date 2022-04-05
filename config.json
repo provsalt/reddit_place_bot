@@ -1,0 +1,26 @@
+{
+  "xAxis": 200,
+  "yAxis": 200,
+  "delay": 5,
+  "proxies": false,
+  "accounts": [
+    {
+      "username": "account1",
+      "password": "password",
+      "clientID": "clientID",
+      "clientSecret": "clientSecret"
+    },
+    {
+      "username": "account2",
+      "password": "password",
+      "clientID": "clientID",
+      "clientSecret": "clientSecret"
+    },
+    {
+      "username": "account3",
+      "password": "password",
+      "clientID": "clientID",
+      "clientSecret": "clientSecret"
+    }
+  ]
+}

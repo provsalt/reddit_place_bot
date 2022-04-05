@@ -1,9 +1,10 @@
 package config
 
 type Config struct {
-	XAxis int `json:"xAxis"`
-	YAxis int `json:"yAxis"`
-	Delay int `json:"delay"`
+	XAxis   int  `json:"xAxis"`
+	YAxis   int  `json:"yAxis"`
+	Delay   int  `json:"delay"`
+	Proxies bool `json:"proxies"`
 
 	Accounts []Account `json:"accounts"`
 }
